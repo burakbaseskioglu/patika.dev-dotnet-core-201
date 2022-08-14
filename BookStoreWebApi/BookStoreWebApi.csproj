@@ -11,15 +11,41 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="DataAccess\" />
     <None Remove="DataAccess\DataGenerator\" />
+    <None Remove="Operations\" />
+    <None Remove="Common\" />
+    <None Remove="Common\Enums\" />
+    <None Remove="Application\" />
+    <None Remove="Application\BookOperations\" />
+    <None Remove="AutoMapper" />
+    <None Remove="FluentValidation" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Common\AutoMapper\" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Application\BookOperations\Queries\" />
+    <None Remove="Application\BookOperations\Command\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="DataAccess\" />
     <Folder Include="DataAccess\DataGenerator\" />
+    <Folder Include="Operations\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Enums\" />
+    <Folder Include="Application\" />
+    <Folder Include="Application\BookOperations\" />
+    <Folder Include="Common\AutoMapper\" />
+    <Folder Include="Application\BookOperations\Queries\" />
+    <Folder Include="Application\BookOperations\Command\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 </Project>

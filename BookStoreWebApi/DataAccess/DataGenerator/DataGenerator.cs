@@ -26,6 +26,15 @@ namespace BookStoreWebApi.DataAccess.DataGenerator
                     new Book { Id = 4, Title = "Book 4", PageCount = 146, GenreId = 3, PublishDate = new DateTime(1999, 7, 22) }
                 };
 
+                var genreList = new List<Genre>
+                {
+                    new Genre{ Id = 1, Name = "Personal" },
+                    new Genre{ Id = 2, Name = "Novel" },
+                    new Genre{ Id = 3, Name = "Story" },
+                    new Genre{ Id = 4, Name = "Literature" },
+                };
+
+                context.Genres.AddRange(genreList);
                 context.Books.AddRange(bookList);
                 context.SaveChanges();
             }

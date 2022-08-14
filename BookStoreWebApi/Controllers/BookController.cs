@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using BookStoreWebApi.Application.BookOperations.Command.Create;
+using BookStoreWebApi.Application.BookOperations.Command.Delete;
+using BookStoreWebApi.Application.BookOperations.Command.Update;
+using BookStoreWebApi.Application.BookOperations.Queries.GetBookDetails;
+using BookStoreWebApi.Application.BookOperations.Queries.GetBooks;
 using BookStoreWebApi.DataAccess;
-using BookStoreWebApi.Entities;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using static BookStoreWebApi.Application.BookOperations.Command.Update.UpdateBookCommand;
 
 namespace BookStoreWebApi.Controllers
 {
@@ -15,25 +16,59 @@ namespace BookStoreWebApi.Controllers
     public class BookController : Controller
     {
         private readonly BookStoreDBContext _context;
+        private readonly IMapper _mapper;
 
-        public BookController(BookStoreDBContext context)
+        public BookController(BookStoreDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
-
-        private static List<Book> BookList = new List<Book>
-        {
-            new Book { Id = 1, Title = "Book 1", PageCount = 219, GenreId = 1, PublishDate = new DateTime(1980, 2, 14) },
-            new Book { Id = 2, Title = "Book 2", PageCount = 784, GenreId = 2, PublishDate = new DateTime(2001, 6, 26) },
-            new Book { Id = 3, Title = "Book 3", PageCount = 459, GenreId = 3, PublishDate = new DateTime(1994, 12, 30) },
-            new Book { Id = 4, Title = "Book 4", PageCount = 146, GenreId = 3, PublishDate = new DateTime(1999, 7, 22) }
-        };
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var bookList = _context.Books.OrderBy(x => x.Title).ToList<Book>();
+            GetAllBooks getBooks = new GetAllBooks(_context, _mapper);
+            var bookList = getBooks.Handle();
             return Ok(bookList);
+        }
+
+        [HttpGet("{id:int}")]
+        public IActionResult GetBookById(int id)
+        {
+            GetBookDetails getBookDetails = new GetBookDetails(_context, _mapper);
+            getBookDetails.Id = id;
+            var book = getBookDetails.Handle();
+            return Ok(book);
+        }
+
+        [HttpPost]
+        public IActionResult Add([FromBody] CreateBookModel createBookModel)
+        {
+            CreateBookCommand createBook = new CreateBookCommand(_context, _mapper);
+            createBook.Model = createBookModel;
+            CreateCommandValidator validations = new CreateCommandValidator();
+            validations.ValidateAndThrow(createBook);
+            createBook.Handle();
+            return Ok();
+        }
+
+        [HttpPut("{id:int}")]
+        public IActionResult Update(int id, [FromBody] UpdateBookViewModel updateBookViewModel)
+        {
+            UpdateBookCommand updateBookCommand = new UpdateBookCommand(_context);
+            updateBookCommand.Id = id;
+            updateBookCommand.Model = updateBookViewModel;
+            updateBookCommand.Handle();
+            return Ok();
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            DeleteBookCommand deleteBookCommand = new DeleteBookCommand(_context);
+            deleteBookCommand.Id = id;
+            deleteBookCommand.Handle();
+            return Ok();
         }
     }
 }
