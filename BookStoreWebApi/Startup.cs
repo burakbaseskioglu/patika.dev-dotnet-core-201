@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore.InMemory;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using System.Reflection;
+using BookStoreWebApi.Common.Middlewares;
 
 namespace BookStoreWebApi
 {
@@ -57,6 +58,8 @@ namespace BookStoreWebApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<CustomExceptionMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

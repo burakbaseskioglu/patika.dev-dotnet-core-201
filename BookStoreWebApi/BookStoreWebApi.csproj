@@ -24,6 +24,25 @@
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
     <None Remove="Application\BookOperations\Queries\" />
     <None Remove="Application\BookOperations\Command\" />
+    <None Remove="Application\GenreOperations\" />
+    <None Remove="Application\GenreOperations\Command\" />
+    <None Remove="Application\GenreOperations\Queries\" />
+    <None Remove="Application\GenreOperations\Command\Create\" />
+    <None Remove="Application\GenreOperations\Queries\GetGenres\" />
+    <None Remove="Application\GenreOperations\Queries\GetGenreDetails\" />
+    <None Remove="Application\GenreOperations\Command\Update\" />
+    <None Remove="Application\GenreOperations\Command\Delete\" />
+    <None Remove="Application\AuthorOperations\" />
+    <None Remove="Application\AuthorOperations\Command\" />
+    <None Remove="Application\AuthorOperations\Queries\" />
+    <None Remove="Application\AuthorOperations\Command\CreateAuthor\" />
+    <None Remove="Application\AuthorOperations\Queries\GetAuthors\" />
+    <None Remove="Application\AuthorOperations\Queries\GetAuthorDetails\" />
+    <None Remove="Application\AuthorOperations\Command\UpdateAuthor\" />
+    <None Remove="Application\AuthorOperations\Command\DeleteAuthor\" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Common\Middlewares\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
@@ -37,15 +56,34 @@
     <Folder Include="Common\AutoMapper\" />
     <Folder Include="Application\BookOperations\Queries\" />
     <Folder Include="Application\BookOperations\Command\" />
+    <Folder Include="Application\GenreOperations\" />
+    <Folder Include="Application\GenreOperations\Command\" />
+    <Folder Include="Application\GenreOperations\Queries\" />
+    <Folder Include="Application\GenreOperations\Command\Create\" />
+    <Folder Include="Application\GenreOperations\Queries\GetGenres\" />
+    <Folder Include="Application\GenreOperations\Queries\GetGenreDetails\" />
+    <Folder Include="Application\GenreOperations\Command\Update\" />
+    <Folder Include="Application\GenreOperations\Command\Delete\" />
+    <Folder Include="Application\AuthorOperations\" />
+    <Folder Include="Application\AuthorOperations\Command\" />
+    <Folder Include="Application\AuthorOperations\Queries\" />
+    <Folder Include="Application\AuthorOperations\Command\CreateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthors\" />
+    <Folder Include="Application\AuthorOperations\Queries\GetAuthorDetails\" />
+    <Folder Include="Application\AuthorOperations\Command\UpdateAuthor\" />
+    <Folder Include="Application\AuthorOperations\Command\DeleteAuthor\" />
+    <Folder Include="Common\Middlewares\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="FluentValidation" Version="11.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="FluentValidation" Version="11.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
   </ItemGroup>
 </Project>

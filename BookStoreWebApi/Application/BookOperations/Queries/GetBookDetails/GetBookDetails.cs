@@ -21,7 +21,7 @@ namespace BookStoreWebApi.Application.BookOperations.Queries.GetBookDetails
 
         public GetBookDetailsViewModel Handle()
         {
-            var book = _context.Books.Include(x => x.Genre).Where(x => x.Id == Id).SingleOrDefault();
+            var book = _context.Books.Include(x => x.Genre).Include(x => x.Author).Where(x => x.Id == Id).SingleOrDefault();
 
             if (book == null)
             {
@@ -38,6 +38,7 @@ namespace BookStoreWebApi.Application.BookOperations.Queries.GetBookDetails
             public int PageCount { get; set; }
             public string Genre { get; set; }
             public DateTime PublishDate { get; set; }
+            public string Author { get; set; }
         }
     }
 }

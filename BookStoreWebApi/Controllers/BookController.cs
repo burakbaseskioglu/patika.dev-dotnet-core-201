@@ -58,6 +58,9 @@ namespace BookStoreWebApi.Controllers
             UpdateBookCommand updateBookCommand = new UpdateBookCommand(_context);
             updateBookCommand.Id = id;
             updateBookCommand.Model = updateBookViewModel;
+            UpdateBookCommandValidator validations = new UpdateBookCommandValidator();
+            validations.Validate(updateBookCommand);
+
             updateBookCommand.Handle();
             return Ok();
         }
