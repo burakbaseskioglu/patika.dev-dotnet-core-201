@@ -43,6 +43,11 @@
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="System.IdentityModel.Tokens.Jwt" />
     <None Remove="Common\Middlewares\" />
+    <None Remove="Services\" />
+    <None Remove="Application\UserOperations\" />
+    <None Remove="Application\UserOperations\Command\" />
+    <None Remove="Application\UserOperations\Command\CreateUser\" />
+    <None Remove="Application\UserOperations\Command\CreateAccessToken\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
@@ -73,6 +78,11 @@
     <Folder Include="Application\AuthorOperations\Command\UpdateAuthor\" />
     <Folder Include="Application\AuthorOperations\Command\DeleteAuthor\" />
     <Folder Include="Common\Middlewares\" />
+    <Folder Include="Services\" />
+    <Folder Include="Application\UserOperations\" />
+    <Folder Include="Application\UserOperations\Command\" />
+    <Folder Include="Application\UserOperations\Command\CreateUser\" />
+    <Folder Include="Application\UserOperations\Command\CreateAccessToken\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />

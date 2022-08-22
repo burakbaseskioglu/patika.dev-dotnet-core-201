@@ -1,10 +1,10 @@
 ﻿using System;
 namespace BookStoreWebApi.Entities
 {
-    public class AccessToken
+    public class Token
     {
-        public AccessToken()
-        {
-        }
+        public string AccessToken { get; set; }
+        public DateTime ExpireDate { get; set; }
+        public string RefreshToken { get; set; }
     }
 }
