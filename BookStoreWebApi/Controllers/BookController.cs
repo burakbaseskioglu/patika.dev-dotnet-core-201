@@ -6,13 +6,15 @@ using BookStoreWebApi.Application.BookOperations.Queries.GetBookDetails;
 using BookStoreWebApi.Application.BookOperations.Queries.GetBooks;
 using BookStoreWebApi.DataAccess;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static BookStoreWebApi.Application.BookOperations.Command.Update.UpdateBookCommand;
 
 namespace BookStoreWebApi.Controllers
 {
+    [Authorize]
     [ApiController]
-    [Route("[controller]s")]
+    [Route("api/[controller]")]
     public class BookController : Controller
     {
         private readonly BookStoreDBContext _context;

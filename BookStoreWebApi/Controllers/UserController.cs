@@ -30,12 +30,5 @@ namespace BookStoreWebApi.Controllers
             createUserCommand.Handle();
             return Ok();
         }
-
-        [HttpGet]
-        public IActionResult GetList()
-        {
-
-            return Ok(_context.Users.OrderBy(x => x.Id).ToList());
-        }
     }
 }

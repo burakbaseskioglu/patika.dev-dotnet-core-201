@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace BookStoreWebApi.Services
 {
-    public class JwtTokenService : IJwtTokenService
+    public class JwtTokenService
     {
         private readonly IConfiguration Configuration;
 
@@ -17,27 +17,27 @@ namespace BookStoreWebApi.Services
             Configuration = configuration;
         }
 
-        public Token CreateAccessToken(string userId)
+        public Token CreateAccessToken(User user)
         {
-            var key = Encoding.UTF8.GetBytes(Configuration["TokenOptions:SecretKey"]);
+            var expireDate = DateTime.Now.AddMinutes(15);
             var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenExpires = DateTime.Now.AddMinutes(15);
+            var key = Encoding.UTF8.GetBytes(Configuration["Token:SecurityKey"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, userId)
+                    new Claim(ClaimTypes.Name, user.Id.ToString())
                 }),
-                Expires = tokenExpires,
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+                Expires = expireDate
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
-
+            var createdToken = tokenHandler.WriteToken(token);
 
             var accessToken = new Token
             {
-                AccessToken = tokenHandler.WriteToken(token),
-                ExpireDate = tokenExpires,
+                AccessToken = createdToken,
+                ExpireDate = expireDate,
                 RefreshToken = CreateRefrehToken()
             };
             return accessToken;

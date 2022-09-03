@@ -48,6 +48,7 @@
     <None Remove="Application\UserOperations\Command\" />
     <None Remove="Application\UserOperations\Command\CreateUser\" />
     <None Remove="Application\UserOperations\Command\CreateAccessToken\" />
+    <None Remove="Application\UserOperations\Command\CreateRefreshToken\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entities\" />
@@ -83,6 +84,7 @@
     <Folder Include="Application\UserOperations\Command\" />
     <Folder Include="Application\UserOperations\Command\CreateUser\" />
     <Folder Include="Application\UserOperations\Command\CreateAccessToken\" />
+    <Folder Include="Application\UserOperations\Command\RefreshToken\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
@@ -94,6 +96,5 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation" Version="11.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.0" />
   </ItemGroup>
 </Project>
