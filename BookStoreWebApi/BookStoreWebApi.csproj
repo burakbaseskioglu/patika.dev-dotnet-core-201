@@ -13,7 +13,6 @@
     <None Remove="DataAccess\DataGenerator\" />
     <None Remove="Operations\" />
     <None Remove="Common\" />
-    <None Remove="Common\Enums\" />
     <None Remove="Application\" />
     <None Remove="Application\BookOperations\" />
     <None Remove="AutoMapper" />
@@ -55,7 +54,6 @@
     <Folder Include="DataAccess\DataGenerator\" />
     <Folder Include="Operations\" />
     <Folder Include="Common\" />
-    <Folder Include="Common\Enums\" />
     <Folder Include="Application\" />
     <Folder Include="Application\BookOperations\" />
     <Folder Include="Common\AutoMapper\" />

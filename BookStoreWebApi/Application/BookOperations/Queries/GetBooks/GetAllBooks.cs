@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using BookStoreWebApi.Common.Enums;
 using BookStoreWebApi.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
